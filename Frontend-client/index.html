@@ -4,6 +4,66 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Primary Meta Tags -->
+        <title>ProductOps - Management Suite</title>
+        <meta name="title" content="ProductOps - Management Suite" />
+        <meta
+            name="description"
+            content="A comprehensive product management platform with real-time analytics, multi-language support, and enterprise-grade CRUD operations."
+        />
+        <meta
+            name="keywords"
+            content="ProductOps, product management, CRUD, dashboard, analytics, CSV export, i18n, RTL, accessibility, Node.js, Express, Bootstrap, JavaScript"
+        />
+        <!-- Icons -->
+        <link rel="icon" type="image/png" href="./images/logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./images/logo.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/logo.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./images/logo.png"
+        />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://ahmed-maher77.github.io/ProductOps___Management-Suite/"
+        />
+        <meta property="og:title" content="ProductOps - Management Suite" />
+        <meta
+            property="og:description"
+            content="A comprehensive product management platform with real-time analytics, multi-language support, and enterprise-grade CRUD operations."
+        />
+        <meta
+            property="og:image"
+            content="https://ahmed-maher77.github.io/ProductOps___Management-Suite/images/logo.png"
+        />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:url"
+            content="https://ahmed-maher77.github.io/ProductOps___Management-Suite/"
+        />
+        <meta name="twitter:title" content="ProductOps - Management Suite" />
+        <meta
+            name="twitter:description"
+            content="A comprehensive product management platform with real-time analytics, multi-language support, and enterprise-grade CRUD operations."
+        />
+        <meta
+            name="twitter:image"
+            content="https://ahmed-maher77.github.io/ProductOps___Management-Suite/images/logo.png"
+        />
+        <!-- PWA/Theme (optional) -->
+        <meta name="theme-color" content="#0f1218" />
+        <meta name="application-name" content="ProductOps" />
+        <meta name="apple-mobile-web-app-title" content="ProductOps" />
         <!-- Bootstrap CSS -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -16,6 +76,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -23,12 +84,12 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="styles/style.css" />
-        <title>ProductOps</title>
     </head>
 
     <body>
+        <a href="#mainContent" class="skip-link">Skip to main content</a>
         <!-- Header / Brand -->
-        <header class="py-3 mb-4 animate-on-ready delay-1">
+        <header class="py-3 mb-4 animate-on-ready delay-1" role="banner">
             <div
                 class="container d-flex flex-wrap justify-content-center justify-content-md-between align-items-center gap-2"
             >
@@ -51,21 +112,34 @@
                         <small>Persistent storage</small>
                     </div>
                     <!-- Language Switcher -->
-                    <div class="language-switcher">
+                    <div
+                        class="language-switcher"
+                        aria-label="Language switcher"
+                    >
                         <button
                             class="lang-btn"
                             id="langBtn"
                             onclick="toggleLanguage()"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="langDropdown"
                         >
                             <i class="fa-solid fa-globe me-1"></i>
                             <span id="currentLang">English</span>
                             <i class="fa-solid fa-chevron-down ms-1"></i>
                         </button>
-                        <div class="lang-dropdown" id="langDropdown">
+                        <div
+                            class="lang-dropdown"
+                            id="langDropdown"
+                            role="menu"
+                            aria-labelledby="langBtn"
+                        >
                             <button
                                 class="lang-option"
                                 onclick="switchLanguage('en')"
                                 data-lang="en"
+                                role="menuitemradio"
+                                aria-checked="true"
                             >
                                 <i class="fa-solid fa-flag-usa me-2"></i>
                                 English
@@ -74,6 +148,8 @@
                                 class="lang-option"
                                 onclick="switchLanguage('ar')"
                                 data-lang="ar"
+                                role="menuitemradio"
+                                aria-checked="false"
                             >
                                 <i class="fa-solid fa-flag me-2"></i>
                                 العربية
@@ -84,7 +160,7 @@
             </div>
         </header>
 
-        <main class="container-fluid mb-5">
+        <main class="container-fluid mb-5" id="mainContent" role="main">
             <div class="row g-4 align-items-start">
                 <!-- Form column -->
                 <div class="col-12 col-lg-5">
@@ -236,6 +312,7 @@
                                     class="btn btn-outline-primary btn-sm"
                                     onclick="exportToCSV()"
                                     title="Export products to CSV"
+                                    aria-label="Export products to CSV"
                                 >
                                     <i class="fa-solid fa-download me-1"></i>
                                     <span data-translate="export-csv"
@@ -342,25 +419,40 @@
                                 <table
                                     class="table align-middle mb-0 table-hover table-striped table-dark-theme"
                                 >
+                                    <caption
+                                        class="text-white-50"
+                                        style="display: none"
+                                    >
+                                        Products data table
+                                    </caption>
                                     <!-- Table header -->
                                     <thead>
                                         <tr>
-                                            <th class="text-nowrap">ID</th>
-                                            <th class="text-nowrap">Name</th>
-                                            <th class="text-nowrap">Price</th>
-                                            <th class="text-nowrap">
+                                            <th class="text-nowrap" scope="col">
+                                                ID
+                                            </th>
+                                            <th class="text-nowrap" scope="col">
+                                                Name
+                                            </th>
+                                            <th class="text-nowrap" scope="col">
+                                                Price
+                                            </th>
+                                            <th class="text-nowrap" scope="col">
                                                 Currency
                                             </th>
-                                            <th class="text-nowrap">
+                                            <th class="text-nowrap" scope="col">
                                                 Description
                                             </th>
-                                            <th class="text-nowrap">
+                                            <th class="text-nowrap" scope="col">
                                                 Created At
                                             </th>
-                                            <th class="text-nowrap">
+                                            <th class="text-nowrap" scope="col">
                                                 Updated At
                                             </th>
-                                            <th class="text-nowrap text-center">
+                                            <th
+                                                class="text-nowrap text-center"
+                                                scope="col"
+                                            >
                                                 Actions
                                             </th>
                                         </tr>
@@ -405,12 +497,15 @@
         </main>
 
         <!-- Admin Dashboard Insights Section -->
-        <section class="insights-section py-5">
+        <section class="insights-section py-5" aria-labelledby="insightsTitle">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="insights-header text-center mb-5">
-                            <h2 class="insights-title animate-on-scroll">
+                            <h2
+                                id="insightsTitle"
+                                class="insights-title animate-on-scroll"
+                            >
                                 Admin Dashboard
                             </h2>
                             <p class="insights-subtitle animate-on-scroll">
@@ -506,7 +601,7 @@
         </section>
 
         <!-- Footer -->
-        <footer class="py-4 animate-on-ready delay-4">
+        <footer class="py-4 animate-on-ready delay-4" role="contentinfo">
             <div class="container d-flex flex-column align-items-center gap-2">
                 <small class="text-white-50 text-center">
                     Designed and developed by
@@ -687,6 +782,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Screen reader status region -->
+        <div id="sr-status" class="visually-hidden" aria-live="polite"></div>
 
         <!-- Initial Loader Overlay -->
         <div id="initialLoader" class="initial-loader">

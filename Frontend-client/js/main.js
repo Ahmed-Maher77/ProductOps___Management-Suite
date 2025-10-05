@@ -449,6 +449,9 @@ function updateTranslatableElements() {
 window.toggleLanguage = function () {
     const dropdown = document.getElementById("langDropdown");
     dropdown.classList.toggle("show");
+    const trigger = document.getElementById("langBtn");
+    const expanded = dropdown.classList.contains("show");
+    trigger.setAttribute("aria-expanded", expanded ? "true" : "false");
 };
 
 window.switchLanguage = function (lang) {
@@ -489,9 +492,11 @@ function initializeLanguage() {
 document.addEventListener("click", function (event) {
     const languageSwitcher = document.querySelector(".language-switcher");
     const dropdown = document.getElementById("langDropdown");
+    const trigger = document.getElementById("langBtn");
 
     if (languageSwitcher && !languageSwitcher.contains(event.target)) {
         dropdown.classList.remove("show");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
     }
 });
 
