@@ -1,3 +1,4 @@
+/* =================== Base / Design Tokens =================== */
 /* Base */
 body {
     /* Theme tokens */
@@ -31,6 +32,42 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* =================== Accessibility =================== */
+/* Skip link */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--primary);
+    color: #000;
+    padding: 8px 12px;
+    z-index: 10002;
+    border-radius: 0 0 6px 0;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* Visually hidden utility for SR-only content */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Keyboard focus styles */
+:focus-visible {
+    outline: 2px solid var(--primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* =================== Components: Cards =================== */
 /* Cards */
 .card {
     background: linear-gradient(180deg, var(--card-grad-1), var(--card-grad-2));
@@ -50,6 +87,7 @@ body {
     border-color: color-mix(in hsl, var(--border), white 8%);
 }
 
+/* =================== Components: Forms =================== */
 /* Forms */
 label.form-label {
     color: color-mix(in hsl, var(--muted), white 10%);
@@ -78,6 +116,7 @@ textarea:focus {
     /* background-color: color-mix(in hsl, var(--surface-2), white 4%) !important; */
 }
 
+/* =================== Header & Nav =================== */
 /* Header */
 header {
     background: var(--surface);
@@ -177,6 +216,7 @@ header {
     text-align: center;
 }
 
+/* === 11) RTL overrides =================================================== */
 /* RTL Support */
 .rtl .language-switcher {
     direction: rtl;
@@ -367,7 +407,7 @@ html[dir="rtl"] header .container {
     }
 }
 
-/* Table */
+/* =================== Tables =================== */
 .table-responsive {
     max-height: 500px !important;
     overflow-y: auto;
@@ -405,7 +445,7 @@ th.text-nowrap {
     background-color: var(--table-row-hover);
 }
 
-/* Admin Dashboard Insights Section */
+/* =================== Insights / Dashboard =================== */
 .insights-section {
     background: linear-gradient(
         135deg,
@@ -955,7 +995,7 @@ tr.row-is-editing td {
     color: var(--primary-600) !important;
 }
 
-/* Buttons */
+/* =================== Components: Buttons =================== */
 .btn-primary {
     background-color: var(--primary);
     border-color: var(--primary);
@@ -986,13 +1026,13 @@ tr.row-is-editing td {
     color: green;
 }
 
-/* Selection */
+/* =================== Utilities: Selection =================== */
 ::selection {
     background: color-mix(in hsl, var(--primary), white 10%);
     color: #fff;
 }
 
-/* Popup Styles */
+/* =================== Popup (Toasts) =================== */
 .popup-content {
     display: flex;
     align-items: center;
@@ -1053,7 +1093,7 @@ tr.row-is-editing td {
     }
 }
 
-/* Scrollbar (Webkit) */
+/* =================== Utilities: Scrollbar (Webkit) =================== */
 *::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -1075,7 +1115,7 @@ tr.row-is-editing td {
     background: var(--surface);
 }
 
-/* Initial Loader */
+/* =================== Loader =================== */
 .initial-loader {
     position: fixed;
     inset: 0;
