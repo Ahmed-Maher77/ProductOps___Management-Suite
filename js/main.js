@@ -17,7 +17,7 @@ const clearSearchBtn = document.getElementById("clearSearch");
 const insightsKpis = document.getElementById("insightsKpis");
 
 // ===================== Constants =====================
-const API_URL = "http://localhost:3001/api";
+const API_URL = "https://product-ops-management-suite.vercel.app/api";
 
 // ===================== Language Support =====================
 let currentLanguage = "en";
