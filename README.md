@@ -50,7 +50,7 @@ A comprehensive product management platform for end‑to‑end operations. Produ
 ### 📸 Website Preview (UI Mockup)
 
 <a href="https://ahmed-maher77.github.io/ProductOps___Management-Suite/" target="_blank" title="demo">
-  <img src="uploaded-img-on-github-readme" alt="website preview" width="400">
+  <img src="https://github.com/user-attachments/assets/ae806e43-f848-40d2-b47d-6bfb11571a14" alt="website preview - UI Mockup" width="400">
 </a>
 
 ---
